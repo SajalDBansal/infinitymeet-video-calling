@@ -1,0 +1,10 @@
+{
+  "name": "@infinityMeet/validators",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "types": "index.ts",
+  "dependencies": {
+    "zod": "^4.0.5"
+  }
+}

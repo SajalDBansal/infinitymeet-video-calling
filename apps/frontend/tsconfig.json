@@ -1,0 +1,47 @@
+{
+  "extends": "@repo/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@infinityMeet/auth": [
+        "../packages/auth"
+      ],
+      "@infinityMeet/database": [
+        "../packages/database"
+      ],
+      "@infinityMeet/mocks": [
+        "../packages/mocks"
+      ],
+      "@infinityMeet/types": [
+        "../packages/types"
+      ],
+      "@infinityMeet/ui": [
+        "../packages/ui"
+      ],
+      "@infinityMeet/validators": [
+        "../packages/validators"
+      ],
+    },
+    "typeRoots": [
+      "types",
+      "../../node_modules/@types",
+      "../packages/types"
+    ],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    "next.config.js",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,0 +1,156 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String    @id @default(uuid())
+  email      String    @unique
+  password   String
+  name       String?
+  imageUrl   String?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  lastSeenAt DateTime?
+  isOnline   Boolean   @default(false)
+
+  sessions       UserSession[]
+  meetingsHosted Meeting[]            @relation("HostedMeetings")
+  participants   MeetingParticipant[] @relation("Participant")
+  assignedBy     MeetingParticipant[] @relation("AssignedBy")
+  messages       ChatMessage[]
+}
+
+model UserSession {
+  id        String    @id @default(uuid())
+  sessionId String    @unique @default(uuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  startedAt DateTime  @default(now())
+  endAt     DateTime?
+
+  @@index([endAt])
+}
+
+model Meeting {
+  id          String        @id @default(uuid())
+  title       String
+  description String?
+  scheduledAt DateTime
+  duration    Int
+  status      MeetingStatus
+  createdAt   DateTime      @default(now())
+  startedAt   DateTime?
+  endedAt     DateTime?
+  isLive      Boolean       @default(false)
+
+  hostId String
+  host   User   @relation("HostedMeetings", fields: [hostId], references: [id], onDelete: Cascade)
+
+  participants MeetingParticipant[]
+  messages     ChatMessage[]
+  recordings   Recording[]
+  transcript   Transcript?
+  summary      Summary?
+
+  @@index([status])
+}
+
+model MeetingParticipant {
+  userId String
+  user   User   @relation("Participant", fields: [userId], references: [id], onDelete: Cascade)
+
+  meetingId String
+  meeting   Meeting @relation(fields: [meetingId], references: [id], onDelete: Cascade)
+
+  assignedBy     String?
+  assignedByUser User?   @relation("AssignedBy", fields: [assignedBy], references: [id])
+
+  role     ParticipantRole
+  joinedAt DateTime?
+  leftAt   DateTime?
+
+  @@id([userId, meetingId])
+  @@index([meetingId, role])
+}
+
+model ChatMessage {
+  id        String   @id @default(uuid())
+  meetingId String
+  senderId  String
+  content   String
+  sentAt    DateTime @default(now())
+
+  meeting Meeting @relation(fields: [meetingId], references: [id], onDelete: Cascade)
+  sender  User    @relation(fields: [senderId], references: [id], onDelete: Cascade)
+}
+
+model Transcript {
+  id        String   @id @default(uuid())
+  content   String
+  meetingId String   @unique
+  meeting   Meeting  @relation(fields: [meetingId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model Recording {
+  id        String           @id @default(uuid())
+  meetingId String
+  meeting   Meeting          @relation(fields: [meetingId], references: [id], onDelete: Cascade)
+  format    RecordingFormat
+  size      Int
+  quality   RecordingQuality
+  url       String
+  createdAt DateTime         @default(now())
+
+  @@unique([meetingId, quality])
+}
+
+model Summary {
+  id             String   @id @default(uuid())
+  keyPoints      String[] // Stored as array of text (PostgreSQL only)
+  actionItems    String[]
+  sentiment      String
+  attendanceRate String
+  createdAt      DateTime @default(now())
+  content        String?
+
+  meetingId String  @unique
+  meeting   Meeting @relation(fields: [meetingId], references: [id], onDelete: Cascade)
+}
+
+enum ParticipantRole {
+  HOST
+  CO_HOST
+  ATTENDEE
+  VIEWER
+}
+
+enum MeetingStatus {
+  UPCOMING
+  LIVE
+  COMPLETED
+}
+
+enum RecordingQuality {
+  P320
+  P480
+  P720
+  P1080
+}
+
+enum RecordingFormat {
+  MP4
+  MP3
+}

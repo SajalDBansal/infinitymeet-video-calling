@@ -1,135 +1,76 @@
-# Turborepo starter
+![Alt text](https://res.cloudinary.com/drcbqssyo/image/upload/v1752502509/InfinityMeet_dkmv4r.png)
 
-This Turborepo starter is maintained by the Turborepo core team.
+# InfinityMeet
+## Video Conferencing Application using MediaSoup
 
-## Using this example
+A scalable, modern video conferencing application built with **Next.js** (frontend), **Node.js/Express** (backend), and **MediaSoup** (media server). This project demonstrates a full-stack architecture for real-time video, audio, and chat, leveraging open-source technologies.
 
-Run the following command:
 
-```sh
-npx create-turbo@latest
-```
+## 🚀 Features
 
-## What's inside?
+- **Real-time video & audio conferencing** (SFU via MediaSoup)
+- **Room management**: Create, join, and leave rooms
+- **WebSocket signaling**: Fast, reliable communication using socket.io
+- **Screen sharing**: Share your screen with other participants
+- **Mute/unmute controls**: Manage your audio/video streams
+- **Grid layout for participants**: Responsive video grid for all users
+- **Chat (optional)**: Real-time text chat in rooms
+- **User authentication with NextAuth**: Secure login and session management
+- **Password hashing with bcrypt**: Secure storage of user credentials
+- **State management with Zustand**: Efficient and scalable client-side state
+- **Scalable MediaSoup worker pool**: Efficient media routing
+- **STUN/TURN support**: NAT traversal for reliable connectivity
+- **Persistent room/user data (optional)**: MongoDB/PostgreSQL integration
 
-This Turborepo includes the following packages/apps:
 
-### Apps and Packages
+## 🏗️ Architecture Overview
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- **Frontend:** Next.js (React), Zustand for state management, NextAuth for authentication, WebRTC APIs, connects to backend via WebSocket.
+- **Backend:** Node.js + Express, manages signaling, rooms, users, MediaSoup integration, and password hashing with bcrypt.
+- **Media Layer:** MediaSoup server (SFU), handles media routing, transport, and worker management.
+- **Database:** PostgreSQL or MongoDB for persistence.
+- **Infrastructure:** Can be deployed on Vercel, AWS, or any cloud provider.
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-### Utilities
+## 🖥️ Frontend
 
-This Turborepo has some additional tools already setup for you:
+**Built with:**  
+- [Turborepo](https://turbo.build/) for high-performance monorepo management
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+- [Next.js](https://nextjs.org/) (React framework)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- [Zustand](https://zustand-demo.pmnd.rs/) for state management
+- [NextAuth.js](https://next-auth.js.org/) for authentication
+- [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) for real-time communication
+- [WebRTC APIs](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API) for media capture and transport
 
-### Build
 
-To build all apps and packages, run the following command:
+## 🛠️ Tech Stack
 
-```
-cd my-turborepo
+| Layer         | Technology                        |
+|---------------|-----------------------------------|
+| Frontend      | Next.js, React, TypeScript, Tailwind CSS, Zustand, NextAuth.js |
+| Backend       | Node.js, Express, socket.io, bcrypt |
+| Media Server  | MediaSoup                         |
+| Database      | PostgreSQL   |
+| Signaling     | WebSocket (socket.io)             |
+| Auth          | NextAuth.js, bcrypt               |
+| Infra/Deploy  | Vercel, AWS, Docker (optional)    |
+| STUN/TURN     | Google (in build)                 |
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
+## 🚀 Getting Started
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
-```
+| Step                | Command                                                                 |
+|---------------------|-------------------------------------------------------------------------|
+| **Clone the repo**  | `git clone https://github.com/SajalDBansal/InfinityMeet.git`                   |
+| **Install deps**    | `cd InfinityMeet && npm install`                                        |
+| **Start frontend**  | `npm --filter @infinityMeet/frontend dev`                              |
+| **Start backend**   | `npm --filter @infinityMeet/backend dev`                               |
+| **Start all (dev)** | `npm run dev`                                                              |
 
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+> **Note:**  
+> - Requires [npm](https://nnpm.io/)
+> - Environment variables may be needed for local development (see `.env.example`).
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
-
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+## 📦 Project Structure

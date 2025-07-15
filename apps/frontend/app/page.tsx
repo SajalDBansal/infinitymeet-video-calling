@@ -1,6 +1,8 @@
+"use client";
 import Image, { type ImageProps } from "next/image";
 import { Button } from "@repo/ui/button";
 import styles from "./page.module.css";
+import { useSession } from "next-auth/react";
 
 type Props = Omit<ImageProps, "src"> & {
   srcLight: string;
@@ -19,6 +21,9 @@ const ThemeImage = (props: Props) => {
 };
 
 export default function Home() {
+  const session = useSession();
+  console.log(session);
+
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -63,7 +68,7 @@ export default function Home() {
             Read our docs
           </a>
         </div>
-        <Button appName="web" className={styles.secondary}>
+        <Button appName="frontend" className={styles.secondary}>
           Open alert
         </Button>
       </main>

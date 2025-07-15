@@ -1,5 +1,5 @@
 {
-  "name": "INFINTYMEET",
+  "name": "infinityMeet",
   "private": true,
   "scripts": {
     "build": "turbo run build",

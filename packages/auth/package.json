@@ -1,0 +1,12 @@
+{
+  "name": "@infinityMeet/auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@infinityMeet/database": "*",
+    "@infinityMeet/types": "*",
+    "bcrypt": "^6.0.0",
+    "next-auth": "^4.24.11"
+  }
+}
