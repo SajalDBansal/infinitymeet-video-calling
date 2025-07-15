@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app).
+# InfinityMeet Frontend
 
-## Getting Started
+Welcome to the **InfinityMeet Frontend**! This is the client-side application for InfinityMeet, a modern, scalable video conferencing platform built with the latest web technologies.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Real-time Video & Audio Conferencing** (powered by MediaSoup SFU)
+- **Room Management**: Create, join, and leave meeting rooms
+- **User Authentication**: Secure login and session management (NextAuth.js)
+- **Screen Sharing**: Share your screen with other participants
+- **Mute/Unmute & Camera Toggle**: Full control over your audio/video
+- **Responsive Video Grid**: Dynamic layout for all participants
+- **Participants List**: See who is in the meeting
+- **Chat Panel**: Real-time text chat (optional)
+- **State Management**: Efficient client-side state with Zustand
+- **Error Handling**: User-friendly error messages and notifications
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load Inter, a custom Google Font.
+## 🛠️ Tech Stack & Languages Used
 
-## Learn More
+| Layer         | Technology / Language                        |
+|---------------|----------------------------------------------|
+| Framework     | Next.js (React)                              |
+| Language      | TypeScript                                   |
+| Styling       | Tailwind CSS                                 |
+| State Mgmt    | Zustand                                      |
+| Auth          | NextAuth.js                                  |
+| Real-time     | WebSockets (socket.io)                       |
+| Media         | WebRTC APIs                                  |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📥 Cloning and Running Locally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Follow these steps to clone and run the frontend on your local system:
 
-## Deploy on Vercel
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/SajalDBansal/InfinityMeet.git
+   cd frontend
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Configure environment variables:**
+   - Copy `.env.example` to `.env.local` and fill in the required values.
+
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. **Open in your browser:**
+   - Visit [http://localhost:3000](http://localhost:3000) to view the app.
+
+---
+
+## 📦 Project Structure
+
+- `actions/` - Reusable server actions
+- `app/` - Next.js routes
+- `components/` - Reusable React components
+- `hooks/` - Zustand state management
+- `libs/` - Custom libraries and utilities
+- `providers/` - Context & Theme providers 
+
+---
+
+## 🤝 Contributing
+
+Feel free to open issues or submit pull requests to help improve InfinityMeet!
+
+---

@@ -35,8 +35,6 @@ A scalable, modern video conferencing application built with **Next.js** (fronte
 ## 🖥️ Frontend
 
 **Built with:**  
-- [Turborepo](https://turbo.build/) for high-performance monorepo management
-
 - [Next.js](https://nextjs.org/) (React framework)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/) for styling
@@ -54,6 +52,7 @@ A scalable, modern video conferencing application built with **Next.js** (fronte
 | Backend       | Node.js, Express, socket.io, bcrypt |
 | Media Server  | MediaSoup                         |
 | Database      | PostgreSQL   |
+| monorepo management      | Turborepo   |
 | Signaling     | WebSocket (socket.io)             |
 | Auth          | NextAuth.js, bcrypt               |
 | Infra/Deploy  | Vercel, AWS, Docker (optional)    |

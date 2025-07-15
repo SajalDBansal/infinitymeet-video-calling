@@ -4,7 +4,7 @@ import bcrypt from "bcrypt";
 import { findUser, createUser, logUserIn, createGoogleUser, getUserSession } from "@infinityMeet/database";
 import { NextAuthOptions } from "next-auth";
 
-export const NEXT_AUTH: NextAuthOptions = {
+export const NEXT_AUTH = {
     providers: [
         CredentialsProvider({
             name: "Credentials",
