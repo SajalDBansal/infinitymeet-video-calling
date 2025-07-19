@@ -26,17 +26,17 @@ A scalable, modern video conferencing application built with **Next.js** (fronte
 ## 🏗️ Architecture Overview
 
 - **Frontend:** Next.js (React), Zustand for state management, NextAuth for authentication, WebRTC APIs, connects to backend via WebSocket.
-- **Backend:** Node.js + Express, manages signaling, rooms, users, MediaSoup integration, and password hashing with bcrypt.
-- **Media Layer:** MediaSoup server (SFU), handles media routing, transport, and worker management.
+- **Backend:** Next.js (Express), socket.io for real-time communication, bcrypt for password hashing, connects to MediaSoup via WebSocket.
+- **Media Layer:** Agora Media Server (MediaSoup) for real-time video and audio streaming.
 - **Database:** PostgreSQL or MongoDB for persistence.
 - **Infrastructure:** Can be deployed on Vercel, AWS, or any cloud provider.
-
+- **Repo Structure:**  Monorepo with Turborepo for managing packages and dependencies.
 
 ## 🖥️ Frontend
 
 **Built with:**  
 - [Next.js](https://nextjs.org/) (React framework)
-- [TypeScript](https://www.typescriptlang.org/)
+- [TypeScript](https://www.typescriptlang.org/) (static typing)
 - [Tailwind CSS](https://tailwindcss.com/) for styling
 - [Zustand](https://zustand-demo.pmnd.rs/) for state management
 - [NextAuth.js](https://next-auth.js.org/) for authentication
@@ -64,8 +64,7 @@ A scalable, modern video conferencing application built with **Next.js** (fronte
 |---------------------|-------------------------------------------------------------------------|
 | **Clone the repo**  | `git clone https://github.com/SajalDBansal/InfinityMeet.git`                   |
 | **Install deps**    | `cd InfinityMeet && npm install`                                        |
-| **Start frontend**  | `npm --filter @infinityMeet/frontend dev`                              |
-| **Start backend**   | `npm --filter @infinityMeet/backend dev`                               |
+| **Start frontend**  | `npm --filter @infinityMeet/web dev`                              |
 | **Start all (dev)** | `npm run dev`                                                              |
 
 > **Note:**  

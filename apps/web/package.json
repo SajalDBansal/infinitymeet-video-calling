@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "@infinityMeet/web",
   "version": "1.0.0",
   "type": "module",
   "private": true,
