@@ -5,6 +5,7 @@ import { Header } from "./_components/Header";
 
 export const AuthLayout = async ({ children }: { children: React.ReactNode }) => {
     const session = await getServerSession(NEXT_AUTH);
+
     if (session) {
         redirect("/");
     }

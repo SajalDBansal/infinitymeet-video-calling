@@ -50,7 +50,7 @@ export type UserSessionType = {
 export type MeetingType = {
     id: string;
     title: string;
-    description?: string;
+    description: string;
     scheduledAt: Date;
     duration: number;
     status: MeetingStatusType;
@@ -70,8 +70,10 @@ export type MeetingType = {
 };
 
 export type MeetingParticipantType = {
-    userId: string;
+    id: string;
+    userId?: string;
     meetingId: string;
+    email?: string;
     assignedBy?: string;
     role: ParticipantRoleType;
     joinedAt?: Date;
@@ -135,16 +137,17 @@ export type RecordingFormatType = 'MP4' | 'MP3';
 export type MeetingMetadataType = {
     id: string;
     title: string;
-    description?: string;
+    description?: string | null;
     scheduledAt: Date;
     duration: number;
     status: MeetingStatusType;
     createdAt: Date;
-    startedAt?: Date;
-    endedAt?: Date;
+    startedAt?: Date | null;
+    endedAt?: Date | null;
     isLive: boolean;
     hostId: string;
     pariticipantsCounts?: number;
+    host: string;
 };
 
 export type MeetingStateType = {
@@ -166,4 +169,108 @@ export type MeetingStateType = {
     setTranscript: (transcript: TranscriptType | null) => void;
     setRecordings: (recs: RecordingType[]) => void;
     setSummary: (summary: SummaryType | null) => void;
+}
+
+export type FetchedMeetingType = {
+    id: string;
+    title: string;
+    description?: string | null;
+    scheduledAt: Date;
+    duration?: number | null;
+    status: "UPCOMING" | "LIVE" | "COMPLETED";
+    createdAt: Date;
+    startedAt?: Date | null;
+    endedAt?: Date | null;
+    isLive: boolean;
+
+    hostId: string;
+    host: {
+        id: string;
+        email: string;
+        name?: string | null;
+        imageUrl?: string | null;
+        createdAt: Date;
+        updatedAt: Date;
+        lastSeenAt?: Date | null;
+        isOnline: boolean;
+    };
+
+    participants: {
+        id: string;
+        userId?: string | null;
+        email?: string | null;
+        role: "HOST" | "CO_HOST" | "ATTENDEE" | "VIEWER";
+        joinedAt?: Date | null;
+        leftAt?: Date | null;
+        meetingId: string;
+        assignedBy?: string | null;
+
+        user?: {
+            id: string;
+            email: string;
+            name?: string | null;
+            imageUrl?: string | null;
+            createdAt: Date;
+            updatedAt: Date;
+            lastSeenAt?: Date | null;
+            isOnline: boolean;
+        } | null;
+
+        assignedByUser?: {
+            id: string;
+            email: string;
+            name?: string | null;
+            imageUrl?: string | null;
+            createdAt: Date;
+            updatedAt: Date;
+            lastSeenAt?: Date | null;
+            isOnline: boolean;
+        } | null;
+    }[];
+
+    messages: {
+        id: string;
+        content: string;
+        sentAt: Date;
+        senderId: string;
+        meetingId: string;
+        sender: {
+            id: string;
+            email: string;
+            name?: string | null;
+            imageUrl?: string | null;
+            createdAt: Date;
+            updatedAt: Date;
+            lastSeenAt?: Date | null;
+            isOnline: boolean;
+        };
+    }[];
+
+    transcript?: {
+        id: string;
+        content: string;
+        meetingId: string;
+        createdAt: Date;
+    } | null;
+
+    summary?: {
+        id: string;
+        meetingId: string;
+        keyPoints: string[];
+        actionItems: string[];
+        sentiment: string;
+        attendanceRate: string;
+        createdAt: Date;
+        content?: string | null;
+    } | null;
+
+    recordings: {
+        id: string;
+        format: "MP4" | "MP3";
+        quality: "P320" | "P480" | "P720" | "P1080";
+        size: number;
+        url: string;
+        meetingId: string;
+        createdAt: Date;
+    }[];
 }

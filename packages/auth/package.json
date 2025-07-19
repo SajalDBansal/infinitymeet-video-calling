@@ -8,5 +8,8 @@
     "@infinityMeet/types": "*",
     "bcrypt": "^6.0.0",
     "next-auth": "^4.24.11"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2"
   }
 }

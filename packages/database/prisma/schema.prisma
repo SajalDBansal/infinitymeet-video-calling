@@ -48,7 +48,7 @@ model Meeting {
   title       String
   description String?
   scheduledAt DateTime
-  duration    Int
+  duration    Int?
   status      MeetingStatus
   createdAt   DateTime      @default(now())
   startedAt   DateTime?
@@ -68,12 +68,14 @@ model Meeting {
 }
 
 model MeetingParticipant {
-  userId String
-  user   User   @relation("Participant", fields: [userId], references: [id], onDelete: Cascade)
+  id     String  @id @default(uuid())
+  userId String?
+  user   User?   @relation("Participant", fields: [userId], references: [id], onDelete: Cascade)
 
   meetingId String
   meeting   Meeting @relation(fields: [meetingId], references: [id], onDelete: Cascade)
 
+  email          String?
   assignedBy     String?
   assignedByUser User?   @relation("AssignedBy", fields: [assignedBy], references: [id])
 
@@ -81,8 +83,8 @@ model MeetingParticipant {
   joinedAt DateTime?
   leftAt   DateTime?
 
-  @@id([userId, meetingId])
   @@index([meetingId, role])
+  @@index([email])
 }
 
 model ChatMessage {

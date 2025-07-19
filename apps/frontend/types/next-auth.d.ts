@@ -10,7 +10,7 @@ declare module 'next-auth' {
             image?: string | null;
 
             /** Custom fields */
-            id?: string | null;
+            id: string;
             sessionId?: string | null;
         };
     }

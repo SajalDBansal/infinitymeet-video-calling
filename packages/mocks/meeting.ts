@@ -41,7 +41,8 @@ export const meetingMock: MockMeetingMap = {
                     createdAt: new Date('2025-01-01T00:00:00'),
                     updatedAt: new Date('2025-01-08T14:30:00'),
                     isOnline: false
-                }
+                },
+                id: "1"
             },
             {
                 userId: '2',
@@ -58,7 +59,8 @@ export const meetingMock: MockMeetingMap = {
                     createdAt: new Date('2025-01-01T00:00:00'),
                     updatedAt: new Date('2025-01-08T14:30:00'),
                     isOnline: false
-                }
+                },
+                id: "2"
             },
             {
                 userId: '3',
@@ -75,7 +77,8 @@ export const meetingMock: MockMeetingMap = {
                     createdAt: new Date('2025-01-01T00:00:00'),
                     updatedAt: new Date('2025-01-08T14:30:00'),
                     isOnline: false
-                }
+                },
+                id: "3"
             },
             {
                 userId: '4',
@@ -92,7 +95,8 @@ export const meetingMock: MockMeetingMap = {
                     createdAt: new Date('2025-01-01T00:00:00'),
                     updatedAt: new Date('2025-01-08T14:30:00'),
                     isOnline: false
-                }
+                },
+                id: "4"
             }
         ],
         messages: [
@@ -306,7 +310,8 @@ export const meetingMock: MockMeetingMap = {
                     createdAt: new Date('2025-01-01T00:00:00'),
                     updatedAt: new Date('2025-01-09T10:15:00'),
                     isOnline: false
-                }
+                },
+                id: ""
             },
             {
                 userId: '2',
@@ -323,7 +328,8 @@ export const meetingMock: MockMeetingMap = {
                     createdAt: new Date('2025-01-01T00:00:00'),
                     updatedAt: new Date('2025-01-09T10:15:00'),
                     isOnline: false
-                }
+                },
+                id: ""
             },
             {
                 userId: '5',
@@ -340,7 +346,8 @@ export const meetingMock: MockMeetingMap = {
                     createdAt: new Date('2025-01-01T00:00:00'),
                     updatedAt: new Date('2025-01-09T10:15:00'),
                     isOnline: false
-                }
+                },
+                id: ""
             },
             {
                 userId: '8',
@@ -357,7 +364,8 @@ export const meetingMock: MockMeetingMap = {
                     createdAt: new Date('2025-01-01T00:00:00'),
                     updatedAt: new Date('2025-01-09T10:15:00'),
                     isOnline: false
-                }
+                },
+                id: ""
             }
         ],
     },
@@ -367,13 +375,13 @@ export const meetingMock: MockMeetingMap = {
         description: 'Quarterly review with XYZ Corp to present our progress and discuss upcoming milestones.',
         scheduledAt: new Date('2025-01-12T14:00:00'),
         duration: 60,
-        status: 'LIVE',
+        status: 'UPCOMING',
         createdAt: new Date('2025-01-09T10:15:00'),
         startedAt: new Date('2025-07-14T09:02:00'),
         isLive: true,
-        hostId: '3',
+        hostId: '2717ca18-ec34-4306-9d2c-5b59f6b44cdb',
         host: {
-            id: '3',
+            id: '2717ca18-ec34-4306-9d2c-5b59f6b44cdb',
             email: 'robert@example.com',
             password: '',
             name: 'Robert Johnson',
@@ -398,7 +406,8 @@ export const meetingMock: MockMeetingMap = {
                     createdAt: new Date('2025-01-01T00:00:00'),
                     updatedAt: new Date('2025-01-09T10:15:00'),
                     isOnline: false
-                }
+                },
+                id: ""
             },
             {
                 userId: '2',
@@ -415,7 +424,8 @@ export const meetingMock: MockMeetingMap = {
                     createdAt: new Date('2025-01-01T00:00:00'),
                     updatedAt: new Date('2025-01-09T10:15:00'),
                     isOnline: false
-                }
+                },
+                id: ""
             },
             {
                 userId: '5',
@@ -432,7 +442,8 @@ export const meetingMock: MockMeetingMap = {
                     createdAt: new Date('2025-01-01T00:00:00'),
                     updatedAt: new Date('2025-01-09T10:15:00'),
                     isOnline: false
-                }
+                },
+                id: ""
             },
             {
                 userId: '8',
@@ -449,7 +460,8 @@ export const meetingMock: MockMeetingMap = {
                     createdAt: new Date('2025-01-01T00:00:00'),
                     updatedAt: new Date('2025-01-09T10:15:00'),
                     isOnline: false
-                }
+                },
+                id: ""
             }
         ]
     },
@@ -459,7 +471,7 @@ export const meetingMock: MockMeetingMap = {
         description: 'Quarterly review with XYZ Corp to present our progress and discuss upcoming milestones.',
         scheduledAt: new Date('2025-01-12T14:00:00'),
         duration: 60,
-        status: 'LIVE',
+        status: 'UPCOMING',
         createdAt: new Date('2025-01-09T10:15:00'),
         startedAt: new Date('2025-07-14T09:02:00'),
         isLive: true,
@@ -490,7 +502,8 @@ export const meetingMock: MockMeetingMap = {
                     createdAt: new Date('2025-01-01T00:00:00'),
                     updatedAt: new Date('2025-01-09T10:15:00'),
                     isOnline: false
-                }
+                },
+                id: ""
             }, {
                 userId: '2',
                 meetingId: '2',
@@ -506,7 +519,8 @@ export const meetingMock: MockMeetingMap = {
                     createdAt: new Date('2025-01-01T00:00:00'),
                     updatedAt: new Date('2025-01-09T10:15:00'),
                     isOnline: false
-                }
+                },
+                id: ""
             },
             {
                 userId: '5',
@@ -523,7 +537,8 @@ export const meetingMock: MockMeetingMap = {
                     createdAt: new Date('2025-01-01T00:00:00'),
                     updatedAt: new Date('2025-01-09T10:15:00'),
                     isOnline: false
-                }
+                },
+                id: ""
             },
             {
                 userId: '8',
@@ -540,7 +555,8 @@ export const meetingMock: MockMeetingMap = {
                     createdAt: new Date('2025-01-01T00:00:00'),
                     updatedAt: new Date('2025-01-09T10:15:00'),
                     isOnline: false
-                }
+                },
+                id: ""
             }
         ],
     }

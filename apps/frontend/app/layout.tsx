@@ -3,6 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "providers/ThemeProvider";
 import { SessionProvider } from "providers/SessionProvider";
+import { Toaster } from "components/ui/sonner"
+
+import "@stream-io/video-react-sdk/dist/css/styles.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,6 +49,7 @@ export default function RootLayout({
             storageKey="notion-theme"
           >
             {children}
+            <Toaster />
           </ThemeProvider>
         </SessionProvider>
       </body>

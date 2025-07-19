@@ -7,11 +7,12 @@
         "db:deploy": "npx prisma migrate deploy"
     },
     "devDependencies": {
-        "prisma": "^6.11.1"
+        "prisma": "^6.11.1",
+        "ts-node": "^10.9.2"
     },
     "dependencies": {
-        "@prisma/client": "^6.11.1",
         "@infinityMeet/types": "*",
+        "@prisma/client": "^6.11.1",
         "unique-username-generator": "^1.4.0"
     },
     "exports": {
