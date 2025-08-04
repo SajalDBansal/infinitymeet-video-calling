@@ -1,0 +1,15 @@
+stateDiagram-v2
+  [*] --> SignedOut
+  SignedOut --> SigningIn : User submits credentials
+  SigningIn --> SignedIn : Auth success
+  SigningIn --> SignedOut : Auth fail
+  SignedIn --> CreatingMeeting : User creates meeting
+  CreatingMeeting --> InMeeting : Meeting started
+  SignedIn --> JoiningMeeting : User joins meeting
+  JoiningMeeting --> InMeeting : Joined successfully
+  InMeeting --> InMeeting : Send/Receive Message
+  InMeeting --> InMeeting : Share Screen
+  InMeeting --> InMeeting : Mute/Unmute
+  InMeeting --> MeetingEnded : Host ends meeting
+  MeetingEnded --> SignedIn : Return to dashboard
+  InMeeting --> SignedIn : User leaves meeting 

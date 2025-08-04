@@ -1,0 +1,10 @@
+flowchart TD
+  A[User] -->|Sign In| B[Auth Service]
+  B -->|Token| C[Dashboard]
+  C -->|Create/Join| D[Meeting Service]
+  D -->|Meeting Data| E[Meeting Room]
+  E -->|Send/Receive| F[Chat Service]
+  E -->|Media| G[MediaSoup Server]
+  F -->|Store| H[Database]
+  D -->|Store| H
+  B -->|User Data| H 

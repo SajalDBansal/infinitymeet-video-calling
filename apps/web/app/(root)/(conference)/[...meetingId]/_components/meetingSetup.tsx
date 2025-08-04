@@ -12,7 +12,7 @@ import { Loader } from "lucide-react";
 import { StreamCall, StreamTheme } from "@stream-io/video-react-sdk";
 
 export const MeetingSetup = ({ meeting }: { meeting: FullMeetingType }) => {
-    const [isConfigsSet, setIsConfigsSet] = useState<"config" | "waiting" | "start">("config");
+    const [isConfigsSet, setIsConfigsSet] = useState<"config" | "waiting" | "start">("waiting");
     const { call, isCallLoading } = useGetCallById(meeting.id);
     const session = useSession();
 

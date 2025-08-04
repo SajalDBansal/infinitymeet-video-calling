@@ -59,7 +59,7 @@ export default function Create() {
                 title: values.title,
                 description: values.description,
                 scheduledAt: values.dateTime,
-                status: "LIVE",
+                status: "UPCOMING",
                 createdAt: new Date(),
                 startedAt: new Date(),
                 isLive: false,

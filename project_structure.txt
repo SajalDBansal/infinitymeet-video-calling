@@ -1,0 +1,34 @@
+INFINTYMEET/
+│
+├── apps/
+│   ├── p2p/                # Peer-to-peer meeting client (HTML, CSS, JS)
+│   └── web/                # Main Next.js web application
+│       ├── actions/        # Server actions (meeting, session, stream)
+│       ├── app/            # Next.js app directory (pages, layouts, components)
+│       ├── components/     # Shared React components (Footer, Header, Loader, UI)
+│       ├── hooks/          # Custom React hooks
+│       ├── lib/            # Utility libraries
+│       ├── providers/      # Context and providers (Session, Theme, Stream)
+│       ├── public/         # Static assets (images, logos)
+│       ├── types/          # TypeScript type definitions
+│       ├── globals.css     # Global styles
+│       └── ...             # Configs, package.json, etc.
+│
+├── packages/
+│   ├── auth/               # Authentication logic and providers
+│   ├── database/           # Prisma ORM schema, migrations, and DB access
+│   ├── eslint-config/      # Shared ESLint configuration
+│   ├── mocks/              # Mock data for testing
+│   ├── tailwind-config/    # Shared Tailwind CSS configuration and styles
+│   ├── types/              # Shared TypeScript types and interfaces
+│   ├── typescript-config/  # Shared TypeScript configuration
+│   ├── ui/                 # Reusable UI components (React, CSS)
+│   ├── util-function/      # Utility functions (date, helpers)
+│   └── validators/         # Input validation logic
+│
+├── daigrams/               # Mermaid diagrams and PNGs for documentation
+│
+├── package.json            # Root project configuration
+├── README.md               # Project documentation
+├── turbo.json              # Turborepo configuration
+└── ...                     # Other root-level files (lockfiles, configs) 

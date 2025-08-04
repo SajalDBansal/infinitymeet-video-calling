@@ -1,0 +1,17 @@
+sequenceDiagram
+  participant User
+  participant Frontend
+  participant Backend
+  participant Database
+  User->>Frontend: Sign In
+  Frontend->>Backend: POST /api/auth
+  Backend->>Database: Query user
+  Database-->>Backend: User data
+  Backend-->>Frontend: Auth token
+  Frontend-->>User: Show dashboard
+  User->>Frontend: Create Meeting
+  Frontend->>Backend: POST /api/meeting
+  Backend->>Database: Create meeting
+  Database-->>Backend: Meeting ID
+  Backend-->>Frontend: Meeting details
+  Frontend-->>User: Show meeting room 

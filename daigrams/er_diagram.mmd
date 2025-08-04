@@ -1,0 +1,9 @@
+erDiagram
+  User ||--o{ Meeting : hosts
+  User ||--o{ MeetingParticipant : attends
+  Meeting ||--o{ MeetingParticipant : has
+  Meeting ||--o{ ChatMessage : contains
+  User ||--o{ ChatMessage : sends
+  Meeting ||--o{ Recording : has
+  Meeting ||--o{ Transcript : has
+  Meeting ||--o{ Summary : has 

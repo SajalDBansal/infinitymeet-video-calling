@@ -1,0 +1,68 @@
+classDiagram
+  class User {
+    +String id
+    +String email
+    +String password
+    +String name
+    +String imageUrl
+    +Date createdAt
+    +Date updatedAt
+    +Boolean isOnline
+  }
+  class Meeting {
+    +String id
+    +String title
+    +String description
+    +Date scheduledAt
+    +Int duration
+    +MeetingStatus status
+    +Boolean isLive
+  }
+  class MeetingParticipant {
+    +String id
+    +String userId
+    +String meetingId
+    +ParticipantRole role
+    +Date joinedAt
+    +Date leftAt
+  }
+  class ChatMessage {
+    +String id
+    +String meetingId
+    +String senderId
+    +String content
+    +Date sentAt
+  }
+  class Recording {
+    +String id
+    +String meetingId
+    +RecordingFormat format
+    +Int size
+    +RecordingQuality quality
+    +String url
+    +Date createdAt
+  }
+  class Transcript {
+    +String id
+    +String content
+    +String meetingId
+    +Date createdAt
+  }
+  class Summary {
+    +String id
+    +String meetingId
+    +String[] keyPoints
+    +String[] actionItems
+    +String sentiment
+    +String attendanceRate
+    +Date createdAt
+    +String content
+  }
+  User "1" -- "*" Meeting : hosts
+  User "1" -- "*" MeetingParticipant : attends
+  Meeting "1" -- "*" MeetingParticipant : has
+  Meeting "1" -- "*" ChatMessage : contains
+  User "1" -- "*" ChatMessage : sends
+  Meeting "1" -- "*" Recording : has
+  Meeting "1" -- "1" Transcript : has
+  Meeting "1" -- "1" Summary : has 
