@@ -5,7 +5,7 @@
         "db:generate": "npx prisma generate",
         "db:migrate": "npx prisma migrate dev --skip-generate",
         "db:deploy": "npx prisma migrate deploy",
-        "build": "npm run db:generate && npm run db:migrate"
+        "build": "npm run db:generate"
     },
     "devDependencies": {
         "prisma": "^6.11.1",

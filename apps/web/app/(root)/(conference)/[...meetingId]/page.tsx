@@ -4,7 +4,7 @@ import { MeetingSetup } from "./_components/meetingSetup";
 import { CompletedMeeting } from "./_components/CompletedMeet";
 import { Text } from "./_components/text";
 
-export default async function MeetingHome({ params }: { params: { meetingId: string } }) {
+export default async function MeetingHome({ params }: { params: Promise<{ meetingId: string }> }) {
     const { meetingId } = await params;
     const id = Array.isArray(meetingId) ? meetingId[0] : meetingId;
     const meeting = await findMeeting(id);
